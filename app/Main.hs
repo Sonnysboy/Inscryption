@@ -1,3 +1,4 @@
-module Inscryption.Main where
+module Main (main) where
 
 main :: IO ()
+main = print "main"

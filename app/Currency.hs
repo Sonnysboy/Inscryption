@@ -1,2 +1,2 @@
-module Inscryption.Currency where
+module Currency (Currency) where
 data Currency = Bone | Blood
