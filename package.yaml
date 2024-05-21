@@ -44,10 +44,12 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
-    - -v
     dependencies:
     - Inscryption 
     - text
+    - lens
+    - random
+    - array
 
 tests:
   Inscryption-test:
@@ -57,7 +59,9 @@ tests:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
-    - -v
     dependencies:
     - Inscryption
     - text
+    - array
+    - lens
+    - random

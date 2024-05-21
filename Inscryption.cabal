@@ -42,15 +42,19 @@ executable Inscryption-exe
       Card
       Currency
       Render
+      Util
       Paths_Inscryption
   autogen-modules:
       Paths_Inscryption
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -v
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       Inscryption
+    , array
     , base >=4.7 && <5
+    , lens
+    , random
     , text
   default-language: Haskell2010
 
@@ -63,9 +67,12 @@ test-suite Inscryption-test
       Paths_Inscryption
   hs-source-dirs:
       test
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -v
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       Inscryption
+    , array
     , base >=4.7 && <5
+    , lens
+    , random
     , text
   default-language: Haskell2010
