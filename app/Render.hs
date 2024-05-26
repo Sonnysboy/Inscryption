@@ -32,3 +32,6 @@ cyan = printf "\x1b[36m%s\x1b[0m"
 
 white :: String -> String
 white = printf "\x1b[37m%s\x1b[0m"
+
+bold :: String -> String
+bold = printf "\x1b[1m%s\x1b[0m"

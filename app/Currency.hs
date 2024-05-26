@@ -1,4 +1,4 @@
-module Currency where
+module Currency (Currency(Blood, Bone)) where
 import Render (red, white)
 data Currency = Bone | Blood deriving (Eq)
 
