@@ -41,7 +41,10 @@ executable Inscryption-exe
   other-modules:
       Card
       Currency
+      Game
       Render
+      Test
+      Turn
       Util
       Paths_Inscryption
   autogen-modules:
