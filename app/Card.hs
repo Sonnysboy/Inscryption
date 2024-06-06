@@ -9,7 +9,6 @@ import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (join)
 import Currency (Currency (Bone))
 import Data.Char (toUpper)
-import Data.Kind
 import Data.List (intercalate, isSubsequenceOf, transpose)
 import Render (bold, red)
 import Util (chunks)

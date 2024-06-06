@@ -42,6 +42,7 @@ executable Inscryption-exe
       Card
       Currency
       Game
+      Interface
       Render
       Test
       Turn

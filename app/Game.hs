@@ -4,7 +4,7 @@
 module Game where
 
 import Card (Card (Card), Deck (..), Hand (..), modifyHand, next, renderCards)
-import Data.List
+import Data.List (elemIndex)
 import Data.Maybe (fromMaybe)
 
 data Player = Player
@@ -21,6 +21,7 @@ data Player = Player
 drawCard :: Player -> (Maybe Card, Player)
 drawCard p = case next $ deck p of
   Just (rest, drawn) -> (Just drawn, p {hand = modifyHand (hand p) (drawn :), deck = rest})
+  Nothing -> (Nothing, p)
 
 data Game = Game
   { players :: (Player, Player),
@@ -34,13 +35,12 @@ playerOne, playerTwo :: Game -> Player
 playerOne = fst . players
 playerTwo = snd . players
 
-data Row = Row { 
-    slot1 :: Maybe Card,
+data Row = Row
+  { slot1 :: Maybe Card,
     slot2 :: Maybe Card,
     slot3 :: Maybe Card,
     slot4 :: Maybe Card
-}
-
+  }
 
 -- | returns the four slots in an array
 rowToArray :: Row -> [Maybe Card]
@@ -55,8 +55,6 @@ instance Show Row where
       map
         (fromMaybe blankCard)
         [slot1 me, slot2 me, slot3 me, slot4 me]
-
-
 
 -- | Set a slot in a row to a card, regardless of if it's taken.
 set :: Card -> Int -> Row -> Row
