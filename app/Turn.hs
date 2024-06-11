@@ -27,7 +27,11 @@ attack = RowAction $ \affectedRow (attacker, victim) -> updateRow (applyDamage (
 --
 -- 1. The player cannot make enough blood off of sacrificing.
 -- 2. That slot is taken.
-playCard :: Row -> Int -> Card -> Either (String, Row) Row
+playCard ::
+  Row ->
+  Int ->
+  Card ->
+  Either (String, Row) Row
 playCard r at c
   | isJust (atRowIndex r at) = Left ("This slot is taken", r)
   | isNothing (costs c) = Right (updateRow (const $ Just c) at r)

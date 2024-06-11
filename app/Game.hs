@@ -20,7 +20,7 @@ data Player = Player
 -- | Draw a card on a player.
 drawCard :: Player -> (Maybe Card, Player)
 drawCard p = case next $ deck p of
-  Just (rest, drawn) -> (Just drawn, p {hand = modifyHand (hand p) (drawn :), deck = rest})
+  Just (rest, drawn) -> (Just drawn, p {hand = modifyHand (drawn :) (hand p), deck = rest})
   Nothing -> (Nothing, p)
 
 data Game = Game

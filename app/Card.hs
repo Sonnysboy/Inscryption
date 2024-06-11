@@ -37,19 +37,19 @@ instance Show Card where
       justifyLeft n c s = s ++ replicate (n - length s) c
       format c =
         sep -- bro I swear to god i did not format it like this.
-          ++ "\n"
-          ++ justifyLeft (nameTBD + 8) ' ' ("|    " <> bold (map toUpper (name c)))
-          ++ "|"
-          ++ "\n\
+          <> "\n"
+          <> justifyLeft (nameTBD + 8) ' ' ("|    " <> bold (map toUpper (name c)))
+          <> "|"
+          <> "\n\
              \"
             <> sep
             <> "\n"
             <> drawCosts c
-            <> join (replicate 3 (justifyLeft nameTBD ' ' "|" ++ "|\n"))
+            <> join (replicate 3 (justifyLeft nameTBD ' ' "|" <> "|\n"))
             <> sep
             <> "\n"
             <> "| "
-          ++ justifyLeft (nameTBD + 2) ' ' (bold $ show $ damage c) <> "" <> bold (show (health c) <> red " ❦ ") <> "|"
+          <> justifyLeft (nameTBD + 2) ' ' (bold $ show $ damage c) <> "" <> bold (show (health c) <> red " ❦ ") <> "|"
 
 -- | render a hand of cards
 renderCards :: [Card] -> String
@@ -64,8 +64,8 @@ instance Semigroup Hand where
   (Hand h1) <> (Hand h2) = Hand (h1 <> h2)
 
 -- | Modify a hand given a function.
-modifyHand :: Hand -> ([Card] -> [Card]) -> Hand
-modifyHand h f = Hand $ f (cards h)
+modifyHand :: ([Card] -> [Card]) -> Hand -> Hand
+modifyHand f = Hand . f . cards
 
 instance Show Hand where
   show = intercalate "\n" . map renderCards . chunks 6 . cards

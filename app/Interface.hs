@@ -7,6 +7,7 @@ import Control.Monad.IO.Class (MonadIO (liftIO))
 import Data.Array ( Ix(inRange) )
 import Data.Functor ( (<&>) )
 
+
 -- | Returns the option as well , or Nothing if the user didn't pick one
 pickFromOptions :: [(String, a)] -> IO (Maybe a)
 pickFromOptions options = do
